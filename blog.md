@@ -1,6 +1,6 @@
 ## **Introduction**
 
-[[SonarQube](https://www.sonarsource.com/)](https://www.sonarsource.com/) is widely used for continuous code quality inspection, helping teams detect bugs and vulnerabilities early. However, as projects scale, the backend database can become a bottleneck, affecting performance. Integrating GridDB, a high-performance, distributed NoSQL database, with [SonarQube](https://www.sonarsource.com/) enhances its data processing capabilities, providing faster insights and better scalability for large projects.
+[SonarQube](https://www.sonarsource.com/) is widely used for continuous code quality inspection, helping teams detect bugs and vulnerabilities early. However, as projects scale, the backend database can become a bottleneck, affecting performance. Integrating GridDB, a high-performance, distributed NoSQL database, with [SonarQube](https://www.sonarsource.com/) enhances its data processing capabilities, providing faster insights and better scalability for large projects.
 
 This blog will explore how integrating [SonarQube](https://www.sonarsource.com/) with GridDB can help teams monitor and improve code quality over time. We will provide a step-by-step guide to set up this integration and demonstrate its benefits in achieving a more efficient and high-quality development process.
 
