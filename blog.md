@@ -1,18 +1,18 @@
 ## **Introduction**
 
-SonarQube is widely used for continuous code quality inspection, helping teams detect bugs and vulnerabilities early. However, as projects scale, the backend database can become a bottleneck, affecting performance. Integrating GridDB, a high-performance, distributed NoSQL database, with SonarQube enhances its data processing capabilities, providing faster insights and better scalability for large projects.
+[[SonarQube](https://www.sonarsource.com/)](https://www.sonarsource.com/) is widely used for continuous code quality inspection, helping teams detect bugs and vulnerabilities early. However, as projects scale, the backend database can become a bottleneck, affecting performance. Integrating GridDB, a high-performance, distributed NoSQL database, with [SonarQube](https://www.sonarsource.com/) enhances its data processing capabilities, providing faster insights and better scalability for large projects.
 
-This blog will explore how integrating SonarQube with GridDB can help teams monitor and improve code quality over time. We will provide a step-by-step guide to set up this integration and demonstrate its benefits in achieving a more efficient and high-quality development process.
+This blog will explore how integrating [SonarQube](https://www.sonarsource.com/) with GridDB can help teams monitor and improve code quality over time. We will provide a step-by-step guide to set up this integration and demonstrate its benefits in achieving a more efficient and high-quality development process.
 
-**Why Use GridDB with SonarQube?**
+**Why Use GridDB with [SonarQube](https://www.sonarsource.com/)?**
 
-While SonarQube is a powerful tool for static code analysis, it has limitations when it comes to long-term data storage and real-time analytics:
+While [SonarQube](https://www.sonarsource.com/) is a powerful tool for static code analysis, it has limitations when it comes to long-term data storage and real-time analytics:
 
-- **Limited Data Retention:** SonarQube's built-in database may not be optimized for long-term storage of historical code quality data.
-- **Performance Bottlenecks:** As the volume of data grows, SonarQube's performance may degrade, especially when querying historical trends.
-- **Lack of Real-time Analytics:** SonarQube primarily focuses on static analysis and may not provide real-time insights into code quality metrics.
+- **Limited Data Retention:** [SonarQube](https://www.sonarsource.com/)'s built-in database may not be optimized for long-term storage of historical code quality data.
+- **Performance Bottlenecks:** As the volume of data grows, [SonarQube](https://www.sonarsource.com/)'s performance may degrade, especially when querying historical trends.
+- **Lack of Real-time Analytics:** [SonarQube](https://www.sonarsource.com/) primarily focuses on static analysis and may not provide real-time insights into code quality metrics.
 
-**By integrating SonarQube with GridDB, we can:**
+**By integrating [SonarQube](https://www.sonarsource.com/) with GridDB, we can:**
 
 - **Enhance data retention:** Store historical code quality data for long-term analysis.
 - **Improve performance:** Accelerate query performance and enable real-time insights.
@@ -31,15 +31,15 @@ To set up a GridDB cluster, follow the steps mentioned [here](https://docs.gridd
 
 - **Setting up SonarCluster**
 
-We can either use an existing SonarQube instance or, for evaluation purposes, set up a SonarQube instance using Docker as shown below.
+We can either use an existing [SonarQube](https://www.sonarsource.com/) instance or, for evaluation purposes, set up a [SonarQube](https://www.sonarsource.com/) instance using Docker as shown below.
 
 1. *Pull Image*
    
-   `docker run -d --name sonarqube -p 9000:9000 sonarqube:latest`
+   `docker run -d --name [SonarQube](https://www.sonarsource.com/) -p 9000:9000 [SonarQube](https://www.sonarsource.com/):latest`
    
-   This will pull the latest SonarQube image and run it on port 9000. You can access the SonarQube dashboard by navigating to `http://localhost:9000` in your browser.
+   This will pull the latest [SonarQube](https://www.sonarsource.com/) image and run it on port 9000. You can access the [SonarQube](https://www.sonarsource.com/) dashboard by navigating to `http://localhost:9000` in your browser.
 
-2. *Access SonarQube:*
+2. *Access [SonarQube](https://www.sonarsource.com/):*
    Once the container is running, open a browser and go to `http://localhost:9000`. The default login credentials are:
    
    - **Username**: `admin`
@@ -47,7 +47,7 @@ We can either use an existing SonarQube instance or, for evaluation purposes, se
 
 3. *Create an API Access Token:*
    
-   - Log in to the SonarQube dashboard.
+   - Log in to the [SonarQube](https://www.sonarsource.com/) dashboard.
    - Navigate to **My Account** by clicking on your username at the top right.
    - Go to the **Security** tab.
    - Under the **Tokens** section, click on **Generate Token**.
@@ -55,7 +55,7 @@ We can either use an existing SonarQube instance or, for evaluation purposes, se
    - Copy the generated token as it will not be shown again.
 - **Setting up Spring Boot Application**
 
-Once ourGridDB cluster is operational, the next step is connecting it to ourSpring Boot application. The GridDB Java Client API provides the necessary tools to establish this connection. To simplify the process, you can include the `griddb-spring-boot-starter` library as a dependency in our project, which offers pre-configured beans for a streamlined connection setup.
+Once our GridDB cluster is operational, the next step is connecting it to ourSpring Boot application. The GridDB Java Client API provides the necessary tools to establish this connection. To simplify the process, you can include the `griddb-spring-boot-starter` library as a dependency in our project, which offers pre-configured beans for a streamlined connection setup.
 
 **Project Structure**
 
@@ -190,7 +190,7 @@ GRIDDB_PASSWORD=admin
 management.endpoints.web.exposure.include=*
 server.port=9090
 
-# SonarQube Configuration
+# [SonarQube](https://www.sonarsource.com/) Configuration
 sonar.url=http://localhost:9000
 sonar.token=squ_06bfcd665f7ca4115d9d230b0fe19f294246c919
 sonar.projectKey=Helloworld
@@ -202,7 +202,7 @@ sonar.metricKeys=coverage,duplicated_lines_density,code_smells,bugs,vulnerabilit
 - `griddb.cluster.user`: The username for accessing the GridDB cluster.
 - `griddb.cluster.password`: The password for the specified GridDB user (replace with ouractual password).
 - `server.port=9090`: Sets the port on which ourSpring Boot application will run.
-- `sonar.projectKey`: This property uniquely identifies your project within SonarQube.
+- `sonar.projectKey`: This property uniquely identifies your project within [SonarQube](https://www.sonarsource.com/).
 
 **Create GridDB Client Bean**
 
@@ -255,11 +255,11 @@ public class GridDBConfig {
 
 ## Metric Collection
 
-In this section, we'll delve into the technical flow of how **SonarQube** collects code quality metrics and how these metrics can be transferred and stored in **GridDB** for analysis.
+In this section, we'll delve into the technical flow of how **[SonarQube](https://www.sonarsource.com/)** collects code quality metrics and how these metrics can be transferred and stored in **GridDB** for analysis.
 
-#### 1. **Extracting Metrics from SonarQube**
+#### 1. **Extracting Metrics from [SonarQube](https://www.sonarsource.com/)**
 
-SonarQube provides a comprehensive set of code quality metrics that can be accessed via its API. These metrics include:
+[SonarQube](https://www.sonarsource.com/) provides a comprehensive set of code quality metrics that can be accessed via its API. These metrics include:
 
 - **Bugs**: Issues in the code that could lead to system malfunctions.
 - **Code Smells**: Pieces of code that may not be erroneous but could negatively affect readability and maintainability.
@@ -267,7 +267,7 @@ SonarQube provides a comprehensive set of code quality metrics that can be acces
 - **Test Coverage**: The percentage of code covered by automated tests.
 - **Duplications**: The extent of redundant code across the project.
 
-The process to retrieve these metrics involves making HTTP requests to specific SonarQube API endpoints. For instance:
+The process to retrieve these metrics involves making HTTP requests to specific [SonarQube](https://www.sonarsource.com/) API endpoints. For instance:
 
 ```http
 GET /api/measures/component?component=<project_key>&metricKeys=<metric_1>,<metric_2>
@@ -353,7 +353,7 @@ The `component` refers to the project identifier (e.g., `"Helloworld`), and the 
 
 #### 2. **Storing Data in GridDB**
 
-OOnce the metrics are fetched from SonarQube, they need to be transformed to fit the schema required by **GridDB**. **GridDB** is a time-series database, and its data model focuses on storing time-stamped records efficiently. Therefore, the SonarQube metrics need to be transformed into time-series data that includes the following fields:
+Once the metrics are fetched from [SonarQube](https://www.sonarsource.com/), they need to be transformed to fit the schema required by **GridDB**. **GridDB** is a time-series database, and its data model focuses on storing time-stamped records efficiently. Therefore, the [SonarQube](https://www.sonarsource.com/) metrics need to be transformed into time-series data that includes the following fields:
 
 - **Timestamp**: The time at which the metric was collected (e.g., `2024-11-17T12:00:00Z`).
 - **Metric Name**: The type of metric (e.g., `bugs`, `coverage`).
@@ -389,7 +389,7 @@ merged, conflict)
 }
 ```
 
-Here, the timestamp is set to the current date and time, and the metric name and value are extracted from the SonarQube API response.
+Here, the timestamp is set to the current date and time, and the metric name and value are extracted from the [SonarQube](https://www.sonarsource.com/) API response.
 
 #### **Data Injection**
 
@@ -404,7 +404,6 @@ Finally, the transformed data will be loaded into GridDB, where it can be access
 
 **Data Representation in GridDB**
 
-
 Once the data is stored, GridDB organizes it into time-series entries. The structure is typically as follows:
 
 ```bash
@@ -414,8 +413,6 @@ Timestamp               Metric Name    Metric Value     Component
 ```
 
 This enables efficient querying of time-series data, supporting real-time analysis and historical tracking of code quality metrics.
-
-
 
 Here is the complete code for `MetricsCollectionService`
 
@@ -450,7 +447,7 @@ public class MetricsCollectionService {
   private String sonarUrl; // e.g., http://localhost:9000
 
   @Value("${sonar.token}")
-  private String sonarToken; // SonarQube authentication token
+  private String sonarToken; // [SonarQube](https://www.sonarsource.com/) authentication token
 
   @Value("${sonar.projectKey}")
   private String defaultProjectKey; // Default project key from properties
@@ -463,12 +460,12 @@ public class MetricsCollectionService {
 
   @Scheduled(fixedRate = 5000)
   /**
-   * Fetches metrics from SonarQube, converts them to DTOs, and saves them.
+   * Fetches metrics from [SonarQube](https://www.sonarsource.com/), converts them to DTOs, and saves them.
    */
   public void collectMetrics() throws GSException, JsonMappingException, JsonProcessingException, ParseException {
 
-    // Step 1: Authenticate and Fetch Data from SonarQube
-    // Step 1: Authenticate and Fetch Data from SonarQube
+    // Step 1: Authenticate and Fetch Data from [SonarQube](https://www.sonarsource.com/)
+    // Step 1: Authenticate and Fetch Data from [SonarQube](https://www.sonarsource.com/)
     List<SonarMetricDTO> metrics = fetchMetricsFromSonar(defaultProjectKey, defaultMetricKeys);
 
     // Step 2: Save the metrics into GridDB
@@ -534,7 +531,7 @@ public class MetricsCollectionService {
 }
 ```
 
-By following above steps, we can effectively extract data from SonarQube, load it into GridDB.
+By following above steps, we can effectively extract data from [SonarQube](https://www.sonarsource.com/), load it into GridDB.
 
 ## **Data Querying in GridDB and Visualization with Thymeleaf**
 
@@ -879,7 +876,7 @@ gs[public]> get 39
 
 ### **Conclusion:**
 
-Integrating SonarQube with GridDB for metrics collection provides a powerful mechanism to monitor, analyze, and improve code quality over time. By leveraging SonarQube's REST API, organizations can extract critical metrics such as bugs, code smells, and test coverage. Storing these metrics in GridDB's high-performance time-series database ensures efficient historical tracking and supports real-time analysis.
+Integrating [SonarQube](https://www.sonarsource.com/) with GridDB for metrics collection provides a powerful mechanism to monitor, analyze, and improve code quality over time. By leveraging [SonarQube](https://www.sonarsource.com/)'s REST API, organizations can extract critical metrics such as bugs, code smells, and test coverage. Storing these metrics in GridDB's high-performance time-series database ensures efficient historical tracking and supports real-time analysis.
 
 This streamlined approach empowers development teams to:
 
